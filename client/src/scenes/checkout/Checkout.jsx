@@ -7,7 +7,8 @@ import { shades } from "../../theme";
 import Payment from "./Payment";
 import Shipping from "./Shipping";
 import { loadStripe } from "@stripe/stripe-js";
-import { useNavigate } from "react-router-dom";
+import {apiUrl} from  "../../state/index"
+
 
 const stripePromise = loadStripe(
   "pk_test_51MUS53H8CVd8StTxKIAX7Usq5hOhwAbOvQABfXaGBDO7WenxsLDsXUKaIduU0EjkepYzM3fXwJ1VCN3JRmTZlM3p0097p2hW2U"
@@ -18,7 +19,6 @@ const Checkout = () => {
   const cart = useSelector((state) => state.cart.cart);
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
-  const navigate = useNavigate();
 
   const handleFormSubmit = async (values, actions) => {
     setActiveStep(activeStep + 1);
@@ -49,18 +49,12 @@ const Checkout = () => {
       })),
     };
 
-    const response = await fetch("http://localhost:2000/api/orders", {
+    const response = await fetch(`${apiUrl}/api/orders`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
     });
     const session = await response.json();
-    
-
-    console.log(session)
-    if(session.error.message){
-      navigate("unSuccess")
-    }
     
     await stripe.redirectToCheckout({
       sessionId: session.id,

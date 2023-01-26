@@ -10,8 +10,10 @@ import {
   increaseCount,
   removeFromCart,
   setIsCartOpen,
+  apiUrl,
 } from "../../state";
 import { useNavigate } from "react-router-dom";
+
 
 const FlexBox = styled(Box)`
   display: flex;
@@ -68,7 +70,7 @@ const CartMenu = () => {
                       alt={item?.name}
                       width="123px"
                       height="164px"
-                      src={`http://localhost:2000${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      src={`${apiUrl}${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                     />
                   </Box>
                   <Box flex="1 1 60%">

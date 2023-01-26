@@ -6,7 +6,7 @@ import Item from "../../components/Item";
 import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useDispatch, useSelector } from "react-redux";
-import { setItems } from "../../state";
+import { setItems, apiUrl} from "../../state";
 
 const ShoppingList = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const ShoppingList = () => {
 
   async function getItems() {
     const items = await fetch(
-      "http://localhost:2000/api/items?populate=image",
+      `${apiUrl}/api/items?populate=image`,
       { method: "GET" }
     );
     const itemsJson = await items.json();

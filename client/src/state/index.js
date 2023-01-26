@@ -6,6 +6,8 @@ const initialState = {
   items: [],
 };
 
+export const  apiUrl = "http://localhost:2000"
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState,

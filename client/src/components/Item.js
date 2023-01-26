@@ -6,6 +6,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
+import {apiUrl} from  "../state/index"
+
 
 const Item = ({ item, width }) => {
   const navigate = useNavigate();
@@ -24,6 +26,8 @@ const Item = ({ item, width }) => {
       },
     },
   } = image;
+
+  console.log(apiUrl)
 
   return (
     <Box width={width}>
