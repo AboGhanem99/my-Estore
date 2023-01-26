@@ -10,9 +10,6 @@ import Checkout from "./scenes/checkout/Checkout";
 import Confirmation from "./scenes/checkout/Confirmation";
 import UnSuccess from "./scenes/checkout/UnSuccess";
 
-
-
-
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
