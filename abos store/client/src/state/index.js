@@ -6,7 +6,7 @@ const initialState = {
   items: [],
 };
 
-export const  apiUrl = "https://jazzy-scone-fef26d.netlify.app"
+export const apiUrl = "http://localhost:2000"
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -46,7 +46,7 @@ export const cartSlice = createSlice({
       state.isCartOpen = !state.isCartOpen;
     },
   },
-});
+})
 
 export const {
   setItems,

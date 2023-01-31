@@ -26,9 +26,7 @@ const Item = ({ item, width }) => {
       },
     },
   } = image;
-
-  console.log(apiUrl)
-
+  
   return (
     <Box width={width}>
       <Box
@@ -40,7 +38,7 @@ const Item = ({ item, width }) => {
           alt={item.name}
           width="300px"
           height="400px"
-          src={`http://localhost:2000${url}`}
+          src={`${apiUrl}${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />
